@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="module" namespace="/module" extends="fp">
+		<!-- 跳转至展示模块信息页面 -->
+		<action name="mgrModule">
+			<result>/WEB-INF/jsp/module/moduleMain.jsp</result>
+		</action>
+		
+		<!-- 加载模块左侧数据 -->
+		<action name="selectModuleLeft">
+			<result>/WEB-INF/jsp/module/moduleLeft.jsp</result>
+		</action>
+		
+		<!-- 异步加载模块信息 -->
+		<action name="ajaxLoadModule" class="com.fp.user.action.ModuleAction" method="ajaxLoadModule">
+		</action>
+		
+		<!-- 根据模块的code获取下级模块 -->
+		<action name="selectModule" class="com.fp.user.action.ModuleAction" method="selectModule">
+			<result>/WEB-INF/jsp/module/module.jsp</result>
+		</action>
+		
+		<!-- 删除模块信息 -->
+		<action name="deleteModule" class="com.fp.user.action.ModuleAction" method="deleteModule">
+			<result type="chain">selectModule</result>
+		</action>
+		
+		<!-- 跳转至修改模块页面 -->
+		<action name="showUpdateModule" class="com.fp.user.action.ModuleAction" method="showUpdateModule">
+			<result>/WEB-INF/jsp/module/updateModule.jsp</result>
+		</action>
+		
+		<!-- 修改模块信息 -->
+		<action name="updateModule" class="com.fp.user.action.ModuleAction" method="updateModule">
+			<!-- 引入防表单重复提交拦截器 -->
+			<interceptor-ref name="token"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/WEB-INF/jsp/module/updateModule.jsp</result>
+			<result name="token.invalid">/WEB-INF/jsp/module/updateModule.jsp</result>
+		</action>
+		
+		<!-- 跳转至添加模块页面 -->
+		<action name="showAddModule" class="com.fp.user.action.ModuleAction">
+			<result>/WEB-INF/jsp/module/addModule.jsp</result>
+		</action>
+		
+		<!-- 保存模块信息 -->
+		<action name="addModule" class="com.fp.user.action.ModuleAction" method="addModule">
+			<!-- 引入防表单重复提交拦截器 -->
+			<interceptor-ref name="token"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/WEB-INF/jsp/module/addModule.jsp</result>
+			<result name="token.invalid">/WEB-INF/jsp/module/addModule.jsp</result>
+		</action>
+	</package>
+</struts>

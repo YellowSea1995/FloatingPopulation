@@ -1,0 +1,41 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<!-- 数据源 -->
+	<session-factory>
+		<!-- 配置Hibernat的数据库方言，注意mysql5之后是MySQL5InnoDBDialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		
+		<!-- sql语句显示在控制台 -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		
+		<!-- 
+			create：每次都会重新创建表
+			update：如果有表，就不管；如果没表，就创建 ，如果有更新，会更新
+			create-drop：每次都会重新创建表，之后删除，测试
+		-->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- 开启二级缓存 -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<!-- 配置二级缓存的是实现 -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<!-- 配置session上下文 -->
+		<property name="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</property>
+		
+		<!-- 告诉Hibernate自定义的映射文件
+			如果是xml文件：rosource
+			如果是类文件：class
+		 -->
+		<!-- 声明持久化类 -->
+		<mapping class="com.fp.user.bean.Dept"/>
+		<mapping class="com.fp.user.bean.Job"/>
+		<mapping class="com.fp.user.bean.Module"/>
+		<mapping class="com.fp.user.bean.Popedom"/>
+		<mapping class="com.fp.user.bean.Role"/>
+		<mapping class="com.fp.user.bean.User"/>
+		
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:c="http://www.springframework.org/schema/c"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+      				  http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      				  http://www.springframework.org/schema/tx
+      				  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+      				  http://www.springframework.org/schema/aop
+      				  http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+      				  http://www.springframework.org/schema/context
+      				  http://www.springframework.org/schema/context/spring-context-4.0.xsd
+      				  http://www.springframework.org/schema/util
+      				  http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+    
+    <!-- 配置数据访问的模板dao,spring开启时还没有加载，它是延迟初始化 -->
+    <bean id="daoTemplate" abstract="true" lazy-init="true"
+        p:sessionFactory-ref="sessionFactory"
+          ></bean>
+     <bean id="userDao" class="com.fp.user.dao.impl.UserDaoImpl" 
+        parent="daoTemplate"></bean>
+     <bean id="jobDao" class="com.fp.user.dao.impl.JobDaoImpl" 
+        parent="daoTemplate"></bean>
+     <bean id="deptDao" class="com.fp.user.dao.impl.DeptDaoImpl" 
+        parent="daoTemplate"></bean>
+     <bean id="moduleDao" class="com.fp.user.dao.impl.ModuleDaoImpl" 
+        parent="daoTemplate"></bean>
+     <bean id="popedomDao" class="com.fp.user.dao.impl.PopedomDaoImpl" 
+        parent="daoTemplate"></bean>
+     <bean id="roleDao" class="com.fp.user.dao.impl.RoleDaoImpl" 
+        parent="daoTemplate"></bean>
+     <!-- 获取编号的dao -->
+     <bean id="generatorDao" class="com.fp.user.dao.impl.GeneralDaoImpl" 
+        parent="daoTemplate"></bean>
+   
+</beans>
+
+
+

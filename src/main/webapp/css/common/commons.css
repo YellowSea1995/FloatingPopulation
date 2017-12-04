@@ -1,0 +1,36 @@
+﻿a {
+	color: blue;
+	font-size: 12px;
+	text-decoration: none
+}
+a:hover {
+	color: red;
+	text-decoration: underline;
+}
+body {
+	font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica,sans-serif;
+	background: #F5FAFA;
+	margin: 0px;
+}
+
+table th {
+	font: bold 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+    color: #4f6b72; 
+    border-right: 1px solid #C1DAD7; 
+    border-bottom: 1px solid #C1DAD7; 
+    border-top: 1px solid #C1DAD7; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    text-align:left; 
+    padding: 1px 1px 1px 1px; 
+    background: #CAE8EA ; 
+}
+ 
+html>body td {
+	font-size: 12px;
+}
+
+body,td,th {
+	font-family: 宋体, Arial;
+	font-size: 12px;
+}

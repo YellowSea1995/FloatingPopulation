@@ -1,0 +1,12 @@
+127.0.0.1 - - [14/Sep/2017:16:59:07 +0800] "GET /OA_AXD/getAllDept.jsp HTTP/1.1" 200 315 http-bio-8080-exec-1 534
+127.0.0.1 - - [14/Sep/2017:16:59:08 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-2 0
+127.0.0.1 - - [14/Sep/2017:16:59:10 +0800] "GET /OA_AXD/getDept.action HTTP/1.1" 200 7108 http-bio-8080-exec-3 93
+127.0.0.1 - - [14/Sep/2017:17:00:24 +0800] "GET /OA_AXD/getDept.action HTTP/1.1" 200 9895 http-bio-8080-exec-5 111
+127.0.0.1 - - [14/Sep/2017:17:01:22 +0800] "GET /OA_AXD/getAllDept.jsp HTTP/1.1" 200 315 http-bio-8080-exec-7 13
+127.0.0.1 - - [14/Sep/2017:17:01:22 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-8 0
+127.0.0.1 - - [14/Sep/2017:17:01:24 +0800] "GET /OA_AXD/getDept.action HTTP/1.1" 200 9895 http-bio-8080-exec-9 31
+127.0.0.1 - - [14/Sep/2017:18:05:33 +0800] "GET /deptAction.jspx HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [14/Sep/2017:18:05:33 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [14/Sep/2017:18:05:58 +0800] "GET /OA_AXE/deptAction.jspx HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [14/Sep/2017:18:06:03 +0800] "GET /OA_AXE/deptAction.jspx HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [14/Sep/2017:18:06:03 +0800] "GET /OA_AXE/deptAction.jspx HTTP/1.1" 404 - http-bio-8080-exec-1 0

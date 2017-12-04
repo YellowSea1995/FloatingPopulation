@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="user" namespace="/user" extends="fp">
+		<!-- 异步登录 -->
+		<action name="ajaxLogin" class="com.fp.user.action.UserAction" method="ajaxLogin">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+
+		<!-- 用户退出 -->
+		<action name="userLogout" class="com.fp.user.action.UserAction" method="userLogout">
+		</action>
+		
+		<!-- 分页查询用户信息 -->
+		<action name="selectUser" class="com.fp.user.action.UserAction" method="selectUserByPage">
+			<result>/WEB-INF/jsp/user/user.jsp</result>
+		</action>
+		
+		<!-- 异步加载部门信息 --> 
+		<action name="ajaxLoadDept" class="com.fp.user.action.DeptAction" method="getDept">
+		</action>
+		
+		<!-- 跳转至添加用户页面 -->
+		<action name="showAddUser">
+			<result>/WEB-INF/jsp/user/addUser.jsp</result>
+		</action>
+		
+		<!-- 异步加载部门及职位信息 -->
+		<action name="ajaxLoadDeptAndJob" class="com.fp.user.action.DeptAction" method="ajaxLoadDeptAndJob">
+		</action>
+		
+		<!-- 添加用户信息 -->
+		<action name="addUser" class="com.fp.user.action.UserAction" method="addUser">
+			<!-- 引入防表单重复提交拦截器 -->
+			<interceptor-ref name="token"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/WEB-INF/jsp/user/addUser.jsp</result>
+			<result name="token.invalid">/WEB-INF/jsp/user/addUser.jsp</result>
+		</action>
+		
+		<!-- 异步验证用户信息 -->
+		<action name="validUserName" class="com.fp.user.action.UserAction" method="validUserName">
+		</action>
+		
+		<!-- 删除用户信息 -->
+		<action name="deleteUser" class="com.fp.user.action.UserAction"
+			method="deleteUser">
+			<result type="chain">selectUser</result>
+		</action>
+
+		<!-- 跳转至修改用户页面 -->
+		<action name="showUpdateUser" class="com.fp.user.action.UserAction"
+			method="showUpdateUser">
+			<result>/WEB-INF/jsp/user/updateUser.jsp</result>
+		</action>
+
+		<!-- 修改用户信息 -->
+		<action name="updateUser" class="com.fp.user.action.UserAction"
+			method="updateUser">
+			<!-- 引入防表单重复提交拦截器 -->
+			<interceptor-ref name="token"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/WEB-INF/jsp/user/updateUser.jsp</result>
+			<result name="token.invalid">/WEB-INF/jsp/user/updateUser.jsp</result>
+		</action>
+		
+		<!-- 审核用户信息 -->
+		<action name="checkUser" class="com.fp.user.action.UserAction"
+			method="checkUser">
+			<result type="chain">selectUser</result>
+		</action>
+	</package>
+</struts>

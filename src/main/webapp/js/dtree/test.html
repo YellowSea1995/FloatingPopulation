@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<title>Destroydrop &raquo; Javascripts &raquo; Tree</title>
+
+	<link rel="StyleSheet" href="dtree.css" type="text/css" />
+	<script type="text/javascript" src="dtree.js"></script>
+
+</head>
+
+<body>
+
+
+	<script type="text/javascript">
+		<!--
+
+		d = new dTree('d');
+		// d.add("自已的id", "父级id", "树节点显示的名称");
+		// code: 0001-- "0" code: 00010001 -- > "0001"
+		// [{"id" : "0001", "pId" : "根据code长度计算出来", "name" : ""}]
+		d.add(0,-1,'读书类型');
+		d.add(1, 0, "程序设计");
+		d.add(2, 0, "aaaa");
+		d.add(3, 0, "bbbbb");
+
+		d.add(4, 1, "java");
+		d.add(5, 1, ".net");
+		
+		d.add(6, 2, "aaa1");
+
+		document.write(d);
+
+		//-->
+	</script>
+
+
+</body>
+
+</html>

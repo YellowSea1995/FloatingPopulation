@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 配置Struts2常量 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.action.extension" value="jspx,action,do" />
+
+	<package name="fp" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginInterceptor"
+				class="com.fp.util.filter.LoginInterceptor"></interceptor>
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 配置默认拦截器栈 -->
+		<default-interceptor-ref name="loginStack"></default-interceptor-ref>
+
+		<!-- 配置全局result -->
+		<global-results>
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+		</global-results>
+
+		<!-- 配置jsp页面的全局访问，如输入main.action,则访问 /WEB-INF/jsp/main.jsp -->
+		<action name="*">
+			<result>/WEB-INF/jsp/{1}.jsp</result>
+		</action>
+		<!-- 验证码 -->
+		<action name="verify" class="com.fp.util.VerifyServlet">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+	</package>
+	<include file="com/fp/action/struts-user.xml"></include>
+	<include file="com/fp/action/struts-role.xml"></include>
+	<include file="com/fp/action/struts-module.xml"></include>
+	<include file="com/fp/action/struts-popedom.xml"></include>
+</struts>
