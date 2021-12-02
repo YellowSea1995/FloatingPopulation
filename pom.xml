@@ -20,7 +20,7 @@
   		<aspectjweaver.version>1.8.5</aspectjweaver.version>
   		<hibernate.version>4.3.8.Final</hibernate.version>
   		<slf4j.version>1.7.12</slf4j.version>
-  		<struts2.version>2.3.34</struts2.version>
+  		<struts2.version>2.5.22</struts2.version>
   		<mysql.version>5.1.35</mysql.version>
   		<log4j.version>1.2.17</log4j.version>
   		<mail.version>1.4.7</mail.version>
